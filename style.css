@@ -1,0 +1,847 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 30.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Press Start 2P', sans-serif;
+  font-weight: 400;
+  height: 100vh;
+  color: #333;
+  background-image: linear-gradient(to top left, #753682 0%, #bf2e34 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* LAYOUT */
+main {
+  position: relative;
+  width: 100rem;
+  height: 60rem;
+  background-color: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(200px);
+  filter: blur();
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
+  border-radius: 9px;
+  overflow: hidden;
+  display: flex;
+}
+
+/* ID's */
+
+#nightOverlay {
+  position: absolute;
+  /* display: inline-block; */
+  width: 100%;
+  height: 100%;
+  top: -12rem;
+  z-index: 5;
+}
+
+#foodOverlay {
+  position: absolute;
+  /* display: inline-block; */
+  width: 10%;
+  height: 18%;
+  top: 35rem;
+  left: 85rem;
+  z-index: 5;
+}
+
+#background {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+#imageMiddle {
+  position: absolute;
+  top: 40rem;
+  left: 40%;
+  width: 55rem;
+  z-index: 3;
+}
+#imageRight {
+  position: absolute;
+  top: 40rem;
+  left: 54%;
+  width: 55rem;
+  z-index: 3;
+}
+#portrait {
+  position: fixed;
+  left: 30.5%;
+  /* display: block; */
+  width: 8%;
+  bottom: 18%;
+  border-radius: 1.5rem;
+  box-shadow: 0 0 2pt 1pt rgb(21, 22, 22);
+}
+
+.challengeDevimon {
+  position: fixed;
+  bottom: 75.5%;
+  left: 89%;
+  width: 55rem;
+  height: 32rem;
+  transform: translateX(-50%);
+  color: rgb(202, 190, 190);
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 400;
+  transition: all 0.2s;
+  background-color: rgba(230, 9, 9, 0.897);
+  background-image: linear-gradient(
+    to bottom,
+    rgb(209, 25, 25, 0) 0%,
+    rgba(36, 189, 64, 0.2) 12%,
+    rgba(43, 43, 44, 1) 100%
+  );
+  backdrop-filter: blur(10px);
+  padding: 1.3rem 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+  z-index: 3;
+}
+
+.devimonFace {
+  cursor: none;
+  position: fixed;
+  left: 13%;
+  bottom: 12%;
+  background-image: url('DevimonFace2.png');
+  /* width: 300px; */
+  height: 175px; /* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /*Resize the background image to cover the entire container*/
+  z-index: 2;
+}
+
+.btnDevimon {
+  position: fixed;
+  bottom: 1%;
+  left: 50%;
+  width: 100%;
+  height: 7rem;
+  transform: translateX(-50%);
+  color: rgb(230, 2, 2);
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 2.8rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 400;
+  transition: all 0.2s;
+  border-radius: 10px;
+  background-color: rgba(1, 7, 17, 0.767);
+  background-image: linear-gradient(
+    to bottom,
+    rgb(209, 25, 25, 0) 0%,
+    rgba(36, 189, 64, 0.1) 1%,
+    rgba(43, 43, 44, 0.8) 100%
+  );
+  z-index: 4;
+}
+
+/* ////////////// */
+/* HP and MP Bar Stuff */
+
+/* ///////////// */
+.playerHPText {
+  /* top: 10rem; */
+  display: inline-block;
+  position: fixed;
+  bottom: 11rem;
+  left: 2.8%;
+  font-size: 3.2rem;
+}
+.playerHPTextValue {
+  /* top: 10rem; */
+  /* display: block; */
+  position: fixed;
+  bottom: 11rem;
+  left: 87.3%;
+  font-size: 2.9rem;
+}
+.playerMPTextValue {
+  /* top: 10rem; */
+  /* display: inline-block; */
+  position: fixed;
+  bottom: 4rem;
+  left: 87.3%;
+  font-size: 2.9rem;
+}
+.playerMPText {
+  /* top: 10rem; */
+  display: inline-block;
+  position: fixed;
+  bottom: 4rem;
+  left: 2.8%;
+  font-size: 3.2rem;
+}
+
+.devimonHPTextValue {
+  /* top: 10rem; */
+  /* display: block; */
+  position: fixed;
+  bottom: 15rem;
+  left: 20.3%;
+  font-size: 8.2rem;
+  z-index: 5;
+}
+
+.npcHPText {
+  /* top: 10rem; */
+  display: inline-block;
+  position: fixed;
+  bottom: 11rem;
+  left: 2.8%;
+  font-size: 3.2rem;
+}
+.npcHPTextValue {
+  /* top: 10rem; */
+  /* display: block; */
+  position: fixed;
+  bottom: 11rem;
+  left: 87.3%;
+  font-size: 2.9rem;
+}
+.npcMPTextValue {
+  /* top: 10rem; */
+  /* display: inline-block; */
+  position: fixed;
+  bottom: 4.5rem;
+  left: 87.3%;
+  font-size: 2.9rem;
+}
+.npcMPText {
+  /* top: 10rem; */
+  display: inline-block;
+  position: fixed;
+  bottom: 4rem;
+  left: 2.8%;
+  font-size: 3.2rem;
+}
+
+#hpBarDevimon {
+  border-radius: 10px;
+  background-color: rgb(197, 5, 5);
+  background-image: linear-gradient(
+    to bottom,
+    rgb(209, 25, 25, 0) 0%,
+    rgba(36, 189, 64, 0.1) 1%,
+    rgb(138, 3, 3) 100%
+  );
+  border: 4px solid rgb(19, 18, 18);
+  width: 150rem;
+  height: 7.5rem;
+  position: fixed;
+  left: 11.2%;
+  top: 2.6rem;
+  z-index: 5;
+}
+#hpBlackBarDevimon {
+  border-radius: 10px;
+  border: 4px solid rgb(19, 18, 18);
+  /* padding: 9px; */
+  padding-left: 30rem;
+  background-color: rgb(12, 12, 12);
+  border: 4px solid rgb(19, 18, 18);
+  width: 150rem;
+  height: 7.5rem;
+  position: fixed;
+  left: 11.2%;
+  top: 2.6rem;
+  z-index: 4;
+}
+
+#hpBarPlayer {
+  border-radius: 10px;
+  background-color: rgb(6, 63, 25);
+  background-image: linear-gradient(
+    to bottom,
+    rgb(209, 25, 25, 0) 0%,
+    rgba(36, 189, 64, 0.1) 1%,
+    rgb(26, 228, 69, 1) 100%
+  );
+  border: 4px solid rgb(19, 18, 18);
+  width: 50rem;
+  height: 5rem;
+  position: fixed;
+  left: 23.68%;
+  top: 100.5rem;
+  z-index: 5;
+}
+#hpBlackBarPlayer {
+  border-radius: 10px;
+  border: 4px solid rgb(19, 18, 18);
+  /* padding: 9px; */
+  padding-left: 30rem;
+  background-color: rgb(12, 12, 12);
+  border: 4px solid rgb(19, 18, 18);
+  width: 51rem;
+  height: 6rem;
+  position: fixed;
+  left: 23.5%;
+  top: 100rem;
+  z-index: 4;
+}
+
+#mpBarPlayer {
+  border-radius: 10px;
+  background-color: rgb(4, 51, 114);
+  background-image: linear-gradient(
+    to bottom,
+    rgb(209, 25, 25, 0) 0%,
+    rgba(36, 189, 64, 0.1) 1%,
+    rgb(14, 141, 163) 100%
+  );
+  border: 4px solid rgb(19, 18, 18);
+  width: 50rem;
+  height: 5rem;
+  position: fixed;
+  left: 23.68%;
+  top: 107rem;
+  z-index: 5;
+}
+#mpBlackBarPlayer {
+  border-radius: 10px;
+  border: 4px solid rgb(19, 18, 18);
+  /* padding: 9px; */
+  padding-left: 30rem;
+  background-color: rgb(12, 12, 12);
+  border: 4px solid rgb(19, 18, 18);
+  width: 51rem;
+  height: 6rem;
+  position: fixed;
+  left: 23.5%;
+  top: 106.5rem;
+  z-index: 4;
+}
+
+#hpBarNPC {
+  border-radius: 10px;
+  background-color: rgb(6, 63, 25);
+  background-image: linear-gradient(
+    to bottom,
+    rgb(209, 25, 25, 0) 0%,
+    rgba(36, 189, 64, 0.1) 1%,
+    rgb(26, 228, 69, 1) 100%
+  );
+  border: 4px solid rgb(19, 18, 18);
+  width: 50rem;
+  height: 5rem;
+  position: fixed;
+  left: 55.88%;
+  top: 12.5rem;
+  z-index: 5;
+}
+#hpBlackBarNPC {
+  border-radius: 10px;
+  border: 4px solid rgb(19, 18, 18);
+  /* padding: 9px; */
+  padding-left: 30rem;
+  background-color: rgb(12, 12, 12);
+  border: 4px solid rgb(19, 18, 18);
+  width: 51rem;
+  height: 6rem;
+  position: fixed;
+  left: 55.68%;
+  top: 12rem;
+  z-index: 4;
+}
+
+#mpBarNPC {
+  border-radius: 10px;
+  background-color: rgb(4, 51, 114);
+  background-image: linear-gradient(
+    to bottom,
+    rgb(209, 25, 25, 0) 0%,
+    rgba(36, 189, 64, 0.1) 1%,
+    rgb(14, 141, 163) 100%
+  );
+  border: 4px solid rgb(19, 18, 18);
+  width: 50rem;
+  height: 5rem;
+  position: fixed;
+  left: 55.88%;
+  top: 19.1rem;
+  z-index: 5;
+}
+#mpBlackBarNPC {
+  border-radius: 10px;
+  border: 4px solid rgb(19, 18, 18);
+  /* padding: 9px; */
+  padding-left: 30rem;
+  background-color: rgb(12, 12, 12);
+  border: 4px solid rgb(19, 18, 18);
+  width: 51rem;
+  height: 6rem;
+  position: fixed;
+  left: 55.68%;
+  top: 18.6rem;
+  z-index: 4;
+}
+
+.playerBattleBoxName {
+  position: fixed;
+  margin-left: 5rem;
+  margin-top: 110rem;
+  width: 48rem;
+  height: 7rem;
+  left: 27.1%;
+  top: -20rem;
+  transform: translateX(-50%);
+  color: rgb(224, 162, 28);
+  border: none;
+  font-family: inherit;
+  font-size: 3.2rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-align: center;
+  transition: all 0.2s;
+  background-color: rgb(205, 214, 208, 0.5);
+  background-image: linear-gradient(
+    to bottom,
+    rgb(209, 25, 25, 0) 0%,
+    rgba(36, 189, 64, 0.1) 1%,
+    rgba(65, 68, 67, 0.8) 100%
+  );
+  backdrop-filter: blur(5px);
+  padding: 1.3rem 2.5rem;
+  border-radius: 1rem;
+  /* box-shadow: 0 1.75rem 3.5rem rgba(139, 29, 29); */
+  z-index: 4;
+}
+
+.battleCommands {
+  position: fixed;
+  margin-left: 5rem;
+  margin-top: 110rem;
+  width: 30rem;
+  height: 18rem;
+  left: 13%;
+  top: -13rem;
+  transform: translateX(-50%);
+  color: rgb(245, 246, 248);
+  border: none;
+  font-family: inherit;
+  font-size: 3.2rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  transition: all 0.2s;
+  background-color: rgb(70, 10, 235);
+  background-color: rgba(39, 79, 211, 0.38);
+  backdrop-filter: blur(10px);
+  padding: 1.3rem 2.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.8);
+  z-index: 2;
+}
+
+.playerBattleBox {
+  position: fixed;
+  margin-left: 5rem;
+  margin-top: 110rem;
+  width: 70rem;
+  height: 18rem;
+  left: 31%;
+  top: -13rem;
+  transform: translateX(-50%);
+  color: rgb(245, 246, 248);
+  border: none;
+  font-family: inherit;
+  font-size: 3.2rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  transition: all 0.2s;
+  background-color: rgb(70, 10, 235);
+  background-color: rgba(39, 79, 211, 0.38);
+  backdrop-filter: blur(10px);
+  padding: 1.3rem 2.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.8);
+  z-index: 2;
+}
+
+.npcBattleBoxName {
+  position: fixed;
+  margin-left: 5rem;
+  margin-top: 110rem;
+  width: 35rem;
+  height: 7rem;
+  left: 69.2%;
+  top: -107rem;
+  transform: translateX(-50%);
+  color: rgb(238, 38, 24);
+  border: none;
+  font-family: inherit;
+  font-size: 3.2rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-align: center;
+  transition: all 0.2s;
+  background-color: rgb(205, 214, 208, 0.5);
+  background-image: linear-gradient(
+    to bottom,
+    rgb(209, 25, 25, 0) 0%,
+    rgba(36, 189, 64, 0.1) 1%,
+    rgba(65, 68, 67, 0.8) 100%
+  );
+  backdrop-filter: blur(5px);
+  padding: 1.3rem 2.5rem;
+  border-radius: 1rem;
+  /* box-shadow: 0 1.75rem 3.5rem rgba(139, 29, 29); */
+  z-index: 1;
+}
+
+.npcBattleBox {
+  position: fixed;
+  margin-left: 5rem;
+  margin-top: 110rem;
+  width: 70rem;
+  height: 18rem;
+  left: 63%;
+  top: -100rem;
+  transform: translateX(-50%);
+  color: rgb(245, 246, 248);
+  border: none;
+  font-family: inherit;
+  font-size: 3.2rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  transition: all 0.2s;
+  background-color: rgb(70, 10, 235);
+  background-color: rgba(39, 79, 211, 0.38);
+  backdrop-filter: blur(10px);
+  padding: 1.3rem 2.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.8);
+  z-index: 2;
+}
+
+/* ///////////// */
+
+/* Elements */
+.hidden {
+  display: none;
+  /* color: rgb(189, 236, 16); */
+}
+
+.textShadow {
+  text-shadow: 0 0 3px aliceblue, 0 0 3px aliceblue, 0 0 3px aliceblue,
+    0 0 3px aliceblue, 0 0 3px aliceblue;
+}
+
+.textShadowBottom {
+  text-shadow: 0 0 3px rgb(0, 7, 14), 0 0 3px rgb(0, 7, 14),
+    0 0 3px rgb(0, 7, 14), 0 0 3px rgb(0, 7, 14), 0 0 3px rgb(0, 7, 14);
+}
+
+.talkerName {
+  position: fixed;
+  left: 50%;
+  bottom: 6.8%;
+  transform: translateX(-50%);
+  color: rgb(40, 117, 233);
+  font-family: inherit;
+  font-size: 3rem;
+  text-transform: uppercase;
+  text-align: right;
+  text-align-last: inherit;
+  backdrop-filter: blur(10px);
+  padding: 1.5rem 2rem;
+  border-radius: 1.5rem;
+  background-color: rgba(213, 218, 223, 0.7);
+  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+  z-index: 3;
+}
+
+.dialoguebox {
+  position: fixed;
+  left: 50%;
+  bottom: 12%;
+  /* display: inline-block; */
+  transform: translateX(-50%);
+  color: rgb(242, 242, 248);
+  font-family: inherit;
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  text-align: center;
+  /* text-align-last: inherit; */
+  /* text-align-last: right; */
+  backdrop-filter: blur(10px);
+  padding: 2rem 2.5rem;
+  border-radius: 1.5rem;
+  background-color: rgb(25, 24, 26);
+  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+  z-index: 3;
+}
+
+.battleDialogueBox {
+  position: fixed;
+  left: 50%;
+  bottom: 34%;
+  width: 100%;
+  /* display: inline-block; */
+  transform: translateX(-50%);
+  color: rgb(242, 242, 248);
+  font-family: inherit;
+  font-size: 3rem;
+  text-transform: uppercase;
+  text-align: center;
+  backdrop-filter: blur(5px);
+  padding: 2rem 2.5rem;
+  border-radius: 1.5rem;
+  background-color: rgb(202, 198, 206, 0.1);
+  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.5);
+  text-shadow: 0 0 3px rgb(0, 0, 0), 0 0 3px rgb(0, 0, 0), 0 0 3px rgb(0, 0, 0),
+    0 0 3px rgb(0, 0, 0), 0 0 3px rgb(0, 0, 0);
+  z-index: 5;
+}
+
+.bottomDisplay {
+  position: fixed;
+  margin-left: 5rem;
+  margin-top: 110rem;
+  width: 50rem;
+  left: 88%;
+  transform: translateX(-50%);
+  color: rgb(40, 117, 233);
+  border: none;
+  font-family: inherit;
+  font-size: 4rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  transition: all 0.2s;
+  background-color: rgb(70, 10, 235);
+  background-color: rgba(191, 197, 202, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 1.3rem 2.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+.btn {
+  position: fixed;
+  left: 27%;
+  transform: translateX(-50%);
+  color: rgb(40, 117, 233);
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 400;
+  transition: all 0.2s;
+  background-color: rgb(70, 10, 235);
+  background-color: rgba(191, 197, 202, 0.7);
+  backdrop-filter: blur(10px);
+  padding: 1.3rem 2.5rem;
+  border-radius: 50rem;
+  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+  z-index: 3;
+}
+
+.btnInBattle {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgb(202, 190, 190);
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 1.57rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 400;
+  transition: all 0.2s;
+  background-color: rgba(15, 74, 184, 0.5);
+  background-image: linear-gradient(
+    to bottom,
+    rgb(209, 25, 25, 0) 0%,
+    rgba(36, 189, 64, 0.1) 1%,
+    rgba(43, 43, 44, 0.8) 100%
+  );
+
+  backdrop-filter: blur(10px);
+  padding: 1.3rem 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+  z-index: 3;
+}
+
+.subBtn {
+  position: fixed;
+  left: 27%;
+  transform: translateX(-50%);
+  color: rgb(182, 223, 3);
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 400;
+  transition: all 0.2s;
+  background-color: rgb(70, 10, 235);
+  background-color: rgba(1, 9, 15, 0.514);
+  backdrop-filter: blur(10px);
+  padding: 1.3rem 2.5rem;
+  border-radius: 50rem;
+  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+  z-index: 3;
+}
+
+.inactiveBtn {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgb(223, 227, 233);
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 400;
+  transition: all 0.2s;
+  background-color: rgb(70, 10, 235);
+  background-color: rgba(62, 66, 70, 0.5);
+  backdrop-filter: blur(10px);
+  padding: 1.3rem 2.5rem;
+  border-radius: 50rem;
+  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+  z-index: 3;
+}
+.btn::first-letter {
+  font-size: 2.4rem;
+  display: inline-block;
+  margin-right: 0.2rem;
+}
+.btn:active {
+  transform: translate(-50%, 2px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}
+.btnInBattle:active {
+  transform: translate(-50%, 2px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}
+.subBtn:active {
+  transform: translate(-50%, 2px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}
+.btn:focus {
+  outline-style: none;
+  box-shadow: 0 0 3pt 2pt aliceblue;
+}
+.btnInBattle:focus {
+  outline-style: none;
+  box-shadow: 0 0 3pt 2pt aliceblue;
+}
+.btnDevimon:active {
+  transform: translate(-50%, 2px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}
+.btnDevimon:focus {
+  outline-style: none;
+  box-shadow: 0 0 3pt 2pt rgb(235, 8, 8);
+}
+
+.subBtn:focus {
+  outline-style: none;
+  box-shadow: 0 0 3pt 2pt aliceblue;
+}
+
+.battle1 {
+  bottom: 67%;
+  width: 94%;
+  height: 28%;
+  font-size: 1.7rem;
+  text-align: left;
+}
+.battle2 {
+  bottom: 36%;
+  width: 94%;
+  height: 28%;
+  font-size: 1.7rem;
+  text-align: left;
+}
+.battle3 {
+  bottom: 5%;
+  width: 94%;
+  height: 28%;
+  text-align: left;
+  color: rgb(192, 224, 7);
+  font-size: 2.5rem;
+}
+
+.btnBattle {
+  bottom: 120rem;
+  left: 37.5rem;
+}
+.btnTrain {
+  bottom: 120rem;
+  left: 58rem;
+}
+
+.btnHP {
+  bottom: 113.5rem;
+  left: 58rem;
+}
+.btnMP {
+  bottom: 107rem;
+  left: 58rem;
+}
+.btnATK {
+  bottom: 100.5rem;
+  left: 57.5rem;
+}
+.btnDEF {
+  bottom: 94rem;
+  left: 58rem;
+}
+.btnSPD {
+  bottom: 87.5rem;
+  left: 58rem;
+}
+
+.btnFood {
+  bottom: 120rem;
+  left: 75rem;
+}
+.btnSleep {
+  bottom: 120rem;
+  left: 92rem;
+}
+.btnDecisionTop {
+  top: 69rem;
+  left: 50%;
+}
+.btnDecisionMiddle {
+  top: 75rem;
+  left: 50%;
+}
+.btnDecisionBottom {
+  top: 81rem;
+  left: 50%;
+}

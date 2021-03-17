@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- <audio
+      id="music"
+      src="musicFileIsland.mp3"
+      loop="true"
+      autostart="true"
+      hidden="true"
+    ></audio> -->
+    <title>Digimon Island</title>
+  </head>
+  <body>
+    <img id="nightOverlay" src="NightSky.png" />
+    <img id="foodOverlay" src="steak.png" />
+    <img id="background" src="Background1.png" />
+    <img id="imageMiddle" src="Jijimon.gif" />
+    <img id="imageRight" src="Jijimon.gif" />
+
+    <div class="battleStats textShadowBottom">
+      <p id="hpBarPlayer" value="100" max="100"></p>
+      <p id="hpBlackBarPlayer" value="100" max="100"></p>
+      <p id="mpBarPlayer" value="100" max="100"></p>
+      <p id="mpBlackBarPlayer" value="100" max="100"></p>
+      <p id="hpBarNPC" value="100" max="100"></p>
+      <p id="hpBlackBarNPC" value="100" max="100"></p>
+      <p id="mpBarNPC" value="100" max="100"></p>
+      <p id="mpBlackBarNPC" value="100" max="100"></p>
+      <p id="hpBarDevimon" value="100" max="100"></p>
+      <p id="hpBlackBarDevimon" value="100" max="100"></p>
+    </div>
+
+    <div class="playerBattleBox textShadowBottom">
+      <p class="playerHPText">HP</p>
+      <p class="playerMPText">MP</p>
+      <p class="playerHPTextValue">50</p>
+      <p class="playerMPTextValue">50</p>
+    </div>
+    <div class="playerBattleBoxName textShadowBottom">
+      <p id="playerBattleName"></p>
+    </div>
+
+    <div class="battleCommands textShadowBottom">
+      <button class="btnInBattle battle1">Attack</button>
+      <button class="btnInBattle battle2">Pepper Breath</button>
+      <button class="btnInBattle battle3">Digivolve!</button>
+    </div>
+    <div class="challengeDevimon textShadow">
+      <img class="devimonFace" src="DevimonFace2.png" />
+      <button class="btnDevimon">Challenge Devimon!</button>
+    </div>
+
+    <div class="npcBattleBox textShadowBottom">
+      <p class="npcHPText">HP</p>
+      <p class="npcMPText">MP</p>
+      <p class="npcHPTextValue">50</p>
+      <p class="npcMPTextValue">55</p>
+    </div>
+    <div class="npcBattleBoxName textShadowBottom">
+      <p id="npcBattleName"></p>
+    </div>
+
+    <div class="bottomDisplay textShadowBottom">
+      <p class="bottomDisplay-tp">TP ➡ <span class="tp">0</span></p>
+      <p class="bottomDisplay-dp">DP ➡ <span class="dp">0</span></p>
+    </div>
+    <section class="menuTop">
+      <button class="btn btnBattle">Battle!</button>
+      <button class="btn btnTrain">Train</button>
+      <section class="trainMenu">
+        <button class="subBtn btnHP">HP</button>
+        <button class="subBtn btnMP">MP</button>
+        <button class="subBtn btnATK">ATK</button>
+        <button class="subBtn btnDEF">DEF</button>
+        <button class="subBtn btnSPD">SPD</button>
+      </section>
+      <button class="btn btnFood">Food</button>
+      <button class="btn btnSleep">Sleep</button>
+    </section>
+    <section class="decisions">
+      <button class="btn btnDecisionTop">1</button>
+      <button class="btn btnDecisionMiddle">2</button>
+      <button class="btn btnDecisionBottom">Return Home</button>
+    </section>
+    <section>
+      <p class="dialoguebox">Greetings Tamer!</p>
+      <p class="battleDialogueBox">Agumon takes some damage!</p>
+
+      <p class="talkerName">Jijimon</p>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>
