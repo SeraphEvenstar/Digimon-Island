@@ -89,6 +89,33 @@ main {
   box-shadow: 0 0 2pt 1pt rgb(21, 22, 22);
 }
 
+.pause {
+  position: fixed;
+  bottom: 3%;
+  left: 6.5%;
+  width: 12%;
+  height: 4rem;
+  transform: translateX(-50%);
+  color: rgb(6, 197, 245);
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 2rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 400;
+  transition: all 0.2s;
+  border-radius: 10px;
+  background-color: rgba(1, 7, 17, 0.767);
+  background-image: linear-gradient(
+    to bottom,
+    rgb(209, 25, 25, 0) 0%,
+    rgba(36, 189, 64, 0.1) 1%,
+    rgba(43, 43, 44, 0.8) 100%
+  );
+  z-index: 4;
+}
+
 .challengeDevimon {
   position: fixed;
   bottom: 75.5%;
@@ -768,6 +795,10 @@ main {
 }
 
 .subBtn:focus {
+  outline-style: none;
+  box-shadow: 0 0 3pt 2pt aliceblue;
+}
+.pause:focus {
   outline-style: none;
   box-shadow: 0 0 3pt 2pt aliceblue;
 }
