@@ -12,9 +12,8 @@ function bgFileIsland() {
   audio.play();
 }
 function bgPause() {
-  audio.pause();
-  if (pause === true) {
-    bgPause();
+  if (pause === false) {
+    audio.pause();
   }
 }
 function bgBattle() {
