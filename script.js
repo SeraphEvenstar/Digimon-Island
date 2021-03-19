@@ -1191,7 +1191,7 @@ pauseBtn.addEventListener('click', function () {
     audio.play();
   } else {
     pause = true;
-    bgPause();
+    audio.pause();
   }
 });
 
