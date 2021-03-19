@@ -1063,6 +1063,9 @@ const battleFunctionEnemyHasDied = function () {
 };
 
 const deDigivolution = function () {
+  if (partner === 'Agumon' || partner === 'Betamon') {
+    return;
+  }
   if (partner === 'Seadramon' || partner === 'MegaSeadramon') {
     partner = 'Betamon';
     partnerSelection = 0;
@@ -1070,9 +1073,6 @@ const deDigivolution = function () {
   if (partner === 'GeoGreymon' || partner === 'RizeGreymon') {
     partner = 'Agumon';
     partnerSelection = 5;
-  }
-  if (partner === 'Agumon' || partner === 'Betamon') {
-    return;
   }
   if (partner === 'RizeGreymon' || partner === 'MegaSeadramon') {
     statBoost = 30;
