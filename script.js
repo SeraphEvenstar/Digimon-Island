@@ -13,18 +13,30 @@ function bgFileIsland() {
 }
 function bgPause() {
   audio.pause();
+  if (pause === true) {
+    bgPause();
+  }
 }
 function bgBattle() {
   audio = new Audio('musicBattle.mp3');
   audio.play();
+  if (pause === true) {
+    bgPause();
+  }
 }
 function bgDigivolution() {
   audio = new Audio('musicDigivolve.mp3');
   audio.play();
+  if (pause === true) {
+    bgPause();
+  }
 }
 function bgDevimon() {
   audio = new Audio('musicDevimon.mp3');
   audio.play();
+  if (pause === true) {
+    bgPause();
+  }
 }
 
 // Music Testing Area Done
@@ -68,6 +80,7 @@ let digivolutionBattle = 1;
 
 let battleDialogueQueue = 0;
 let battleScene = false;
+let pause = false;
 
 // Digimon Stats
 
@@ -100,7 +113,7 @@ let playerHP,
   mpBarPlayerValue,
   dpFromBattle;
 
-const tester = document.querySelector('.tester');
+const pauseBtn = document.querySelector('.pause');
 const btn = document.querySelector('.btn');
 const btnDevimon = document.querySelector('.btnDevimon');
 const challengeDevimon = document.querySelector('.challengeDevimon');
@@ -451,6 +464,7 @@ const removeFocus = function () {
   battle2.blur();
   battle3.blur();
   btnDevimon.blur();
+  pauseBtn.blur();
 };
 
 const decisionButtonsToggle = function () {
@@ -1049,6 +1063,14 @@ const battleFunctionEnemyHasDied = function () {
 };
 
 const deDigivolution = function () {
+  if (partner === 'Seadramon' || partner === 'MegaSeadramon') {
+    partner = 'Betamon';
+    partnerSelection = 0;
+  }
+  if (partner === 'GeoGreymon' || partner === 'RizeGreymon') {
+    partner = 'Agumon';
+    partnerSelection = 5;
+  }
   if (partner === 'Agumon' || partner === 'Betamon') {
     return;
   }
@@ -1162,6 +1184,17 @@ const battleFunctionFinishBattle = function () {
   ).textContent = `Return to Digimon Island.`;
   decisionButtonsToggle();
 };
+
+pauseBtn.addEventListener('click', function () {
+  removeFocus();
+  if (pause === true) {
+    pause = false;
+    audio.play();
+  } else {
+    pause = true;
+    bgPause();
+  }
+});
 
 battle1.addEventListener('click', function () {
   removeFocus();
@@ -2020,7 +2053,7 @@ document.addEventListener('keydown', function (e) {
       bgFileIsland();
       document.querySelector(
         '.dialoguebox'
-      ).textContent = `My name is Jijimsadfon and welcome to the Digital World!`;
+      ).textContent = `My name is Jijimon and welcome to the Digital World!`;
     }
     if (introText === 2) {
       document.querySelector(
