@@ -1066,14 +1066,6 @@ const deDigivolution = function () {
   if (partner === 'Agumon' || partner === 'Betamon') {
     return;
   }
-  if (partner === 'Seadramon' || partner === 'MegaSeadramon') {
-    partner = 'Betamon';
-    partnerSelection = 0;
-  }
-  if (partner === 'GeoGreymon' || partner === 'RizeGreymon') {
-    partner = 'Agumon';
-    partnerSelection = 5;
-  }
   if (partner === 'RizeGreymon' || partner === 'MegaSeadramon') {
     statBoost = 30;
   }
@@ -1095,6 +1087,14 @@ const deDigivolution = function () {
   playerATK -= statBoost;
   playerDEF -= statBoost;
   playerSPD -= statBoost;
+  if (partner === 'Seadramon' || partner === 'MegaSeadramon') {
+    partner = 'Betamon';
+    partnerSelection = 0;
+  }
+  if (partner === 'GeoGreymon' || partner === 'RizeGreymon') {
+    partner = 'Agumon';
+    partnerSelection = 5;
+  }
 };
 
 const returnToDigimonIsland = function () {
