@@ -2020,7 +2020,7 @@ document.addEventListener('keydown', function (e) {
       bgFileIsland();
       document.querySelector(
         '.dialoguebox'
-      ).textContent = `My name is Jijimon and welcome to the Digital World!`;
+      ).textContent = `My name is Jijimsadfon and welcome to the Digital World!`;
     }
     if (introText === 2) {
       document.querySelector(
