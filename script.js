@@ -14,12 +14,14 @@ function bgFileIsland() {
 function bgPause() {
   if (pause === false) {
     audio.pause();
+    pause = true;
   }
 }
 function bgBattle() {
   audio = new Audio('musicBattle.mp3');
   audio.play();
   if (pause === true) {
+    pause = false;
     bgPause();
   }
 }
@@ -27,6 +29,7 @@ function bgDigivolution() {
   audio = new Audio('musicDigivolve.mp3');
   audio.play();
   if (pause === true) {
+    pause = false;
     bgPause();
   }
 }
@@ -34,6 +37,7 @@ function bgDevimon() {
   audio = new Audio('musicDevimon.mp3');
   audio.play();
   if (pause === true) {
+    pause = false;
     bgPause();
   }
 }
@@ -1185,14 +1189,13 @@ const battleFunctionFinishBattle = function () {
 };
 
 pauseBtn.addEventListener('click', function () {
-  removeFocus();
   if (pause === true) {
     pause = false;
     audio.play();
   } else {
-    pause = true;
-    audio.pause();
+    bgPause();
   }
+  removeFocus();
 });
 
 battle1.addEventListener('click', function () {
