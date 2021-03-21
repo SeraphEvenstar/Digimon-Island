@@ -9,37 +9,41 @@
 let audio;
 function bgFileIsland() {
   audio = new Audio('musicFileIsland.mp3');
+  if (pause === true) {
+    return;
+  }
+  bgPause();
   audio.play();
 }
 function bgPause() {
-  if (pause === false) {
-    audio.pause();
-    pause = true;
+  if (pause === true) {
+    return;
   }
+  audio.pause();
 }
 function bgBattle() {
   audio = new Audio('musicBattle.mp3');
-  audio.play();
   if (pause === true) {
-    pause = false;
-    bgPause();
+    return;
   }
+  bgPause();
+  audio.play();
 }
 function bgDigivolution() {
   audio = new Audio('musicDigivolve.mp3');
-  audio.play();
   if (pause === true) {
-    pause = false;
-    bgPause();
+    return;
   }
+  bgPause();
+  audio.play();
 }
 function bgDevimon() {
   audio = new Audio('musicDevimon.mp3');
-  audio.play();
   if (pause === true) {
-    pause = false;
-    bgPause();
+    return;
   }
+  bgPause();
+  audio.play();
 }
 
 // Music Testing Area Done
@@ -421,13 +425,14 @@ const partnerMiddle = function () {
   document.querySelector('#imageMiddle').style.top = '40rem';
 
   imageRight.classList.add('hidden');
-  if (partnerSelection >= 1) {
+  if (partner === 'Agumon') {
     document.getElementById('imageMiddle').src = 'Agumon.gif';
     document.querySelector('#imageMiddle').style.width = '40rem';
     playerBattleBoxName.textContent = `Agumon`;
     battle2.textContent = `Pepper Breath`;
     partner = 'Agumon';
-  } else {
+  }
+  if (partner === 'Betamon') {
     document.getElementById('imageMiddle').src = 'Betamon.gif';
     document.querySelector('#imageMiddle').style.width = '55rem';
     playerBattleBoxName.textContent = `Betamon`;
@@ -1193,7 +1198,8 @@ pauseBtn.addEventListener('click', function () {
     pause = false;
     audio.play();
   } else {
-    bgPause();
+    pause = true;
+    audio.pause();
   }
   removeFocus();
 });
